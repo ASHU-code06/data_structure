@@ -15,7 +15,6 @@ public class LinkedListProgram {
             this.next=null;
         }
     }
-
     Node head =null;
 
 
@@ -95,6 +94,24 @@ public class LinkedListProgram {
             }
         }
     }
+    public void deletion(){
+        Node tempo=head;
+        int n=0,choice;
+        Scanner input=new Scanner(System.in);
+        do{
+            if (head==null) {
+                System.out.println("linked list does not exist");
+            }else {
+                System.out.println("\nThis is a deletion method from begining to delete first node\n");
+                tempo=tempo.next;
+                head=tempo;
+                System.out.println("\nDeleted successfully\n");
+            }traverse();
+            System.out.println("\nDo you want to delete more element, yes then type 1 or press 2 to exit");
+            choice = input.nextInt();
+        }while (n==1);
+    }
+
 
 
     public static void main (String[]args) throws CustomizeException {
@@ -103,7 +120,7 @@ public class LinkedListProgram {
         ll.creation();
         //creating new node in begining
         ll.traverse();
-
+        ll.deletion();//delete element from begining
 
     }
 }
