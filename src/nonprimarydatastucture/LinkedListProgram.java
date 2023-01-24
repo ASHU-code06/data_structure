@@ -1,8 +1,5 @@
 package nonprimarydatastucture;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
@@ -100,20 +97,49 @@ public class LinkedListProgram {
         Scanner input=new Scanner(System.in);
         do{
             if (head==null) {
-                System.out.println("linked list does not exist");
+                System.out.println("\nlinked list does not exist");
             }else {
-                System.out.println("\nThis is a deletion method from begining to delete first node\n");
-                tempo=tempo.next;
-                head=tempo;
-                System.out.println("\nDeleted successfully\n");
+                System.out.println("\nThis is a deletion method  to delete any node");
+                System.out.println("Enter 1 to delete from begining");
+                System.out.println("Enter 2 to delete from end");
+                System.out.println("Enter 3 to delete from desired position");
+                int select=input.nextInt();
+                switch (select){
+                    case 1:
+                        tempo=tempo.next;
+                        head=tempo;
+                        System.out.println("\nDeleted successfully\n");
+                        break;
+                    case 2:
+                        Node temporary=head;//this is wiil be the previous node(just behind the ptr) during traversing the linked list
+                        Node ptr=temporary.next;//this is the node pointing to next node address
+                        while (ptr.next!=null){
+                            temporary=ptr;
+                            ptr=ptr.next;
+                        }
+                        temporary.next=null;
+                        break;
+                    case 3:
+                        int p=0;
+                        System.out.println("Enter position");
+                        p=input.nextInt();
+                        Node current_node=head;
+                        Node previous_node=current_node.next;
+                        for(int i=0;i<p-2;i++){
+                            current_node=previous_node;
+                            previous_node=previous_node.next;
+                        }
+                        current_node.next=previous_node.next;
+                        break;
+                    default:
+                        System.out.println("Enter proper choice for deletion");
+                        break;
+                }
             }traverse();
             System.out.println("\nDo you want to delete more element, yes then type 1 or press 2 to exit");
             choice = input.nextInt();
         }while (n==1);
     }
-
-
-
     public static void main (String[]args) throws CustomizeException {
 
         LinkedListProgram ll = new LinkedListProgram();
