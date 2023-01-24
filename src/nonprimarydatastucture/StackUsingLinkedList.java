@@ -1,8 +1,6 @@
 package nonprimarydatastucture;
-
 import java.util.Scanner;
 import java.util.Stack;
-
 public class StackUsingLinkedList {
     static class Node {
         int data;
@@ -15,13 +13,18 @@ public class StackUsingLinkedList {
     }
 
     Node top = null;
-
+    void peek(){
+        if (top==null){
+            System.out.println("\nStack is empty");
+        } else {
+            System.out.println("\ntop element is :  "+top.data);
+        }
+    }
     void push(Scanner var) {
         System.out.println("Enter data to push in stack");
         int data = var.nextInt();
         add(data);
     }
-
     void pop() {
         if (top == null) {
             System.out.println("Stack is empty");
@@ -30,15 +33,15 @@ public class StackUsingLinkedList {
             top = top.next;
         }
     }
-
     void display() {
         Node temp = top;
         while (temp != null) {
             System.out.println(temp.data);
             temp = temp.next;
         }
+        if (top == null) {
+            System.out.println("This Stack is empty");}
     }
-
     void add(int data) {
         Node new_node = new Node(data);
         if (top == null) {

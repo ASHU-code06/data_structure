@@ -13,7 +13,9 @@ public class Main {
             loopvar=var.nextInt();
         } while (loopvar == 1);
         System.out.println("Exit successfully");
+        System.out.println("Displaying stack");
         ll.display();
+        ll.peek();
         System.out.println("Do you want to pop data? if yes type 3");
         int i = var.nextInt();
         while (i == 3) {
