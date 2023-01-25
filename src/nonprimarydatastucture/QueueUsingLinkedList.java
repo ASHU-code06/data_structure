@@ -26,6 +26,14 @@ public class QueueUsingLinkedList {
         if (front == null) {
             System.out.println("This queue is empty");}
     }
+    void dequeue() {
+        if (front == null) {
+            System.out.println("Queue is in underflow condition");
+        } else {
+            System.out.println("done");
+            front = front.next;
+        }
+    }
     void append(int data) {
         Node new_node = new Node(data);
         if (front == null) {

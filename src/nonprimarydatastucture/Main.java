@@ -9,6 +9,7 @@ public class Main {
         do {
             System.out.println("Enter 1 to Enqueue");
             System.out.println("Enter 2 to dislay");
+            System.out.println("Enter 3 to dequeue");
             System.out.println("Enter your choice");
             choice=var.nextInt();
             switch (choice){
@@ -18,12 +19,15 @@ public class Main {
                 case 2:
                     ll.display();
                     break;
+                case 3:
+                    ll.dequeue();
+                    break;
                 default:
                     System.out.println("Invalid choice");
                     break;
-            }System.out.println("Enter 3 to go back to main menu OR enter 4 to exit");
+            }System.out.println("Enter 4 to go back to main menu OR enter 5 to exit");
             loopvar=var.nextInt();
-        } while (loopvar == 3);
+        } while (loopvar == 4);
         System.out.println("Exit successfully");
     }
 }
