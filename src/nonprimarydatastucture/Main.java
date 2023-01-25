@@ -3,28 +3,27 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        StackUsingLinkedList ll = new StackUsingLinkedList();
-        int loopvar = 0;
+        QueueUsingLinkedList ll = new QueueUsingLinkedList();
+        int choice,loopvar = 0;
         Scanner var = new Scanner(System.in);
         do {
-            System.out.println("Enter data ");
-            ll.push(var);
-            System.out.println("Enter 1 to push more data or enter 2 to exit");
+            System.out.println("Enter 1 to Enqueue");
+            System.out.println("Enter 2 to dislay");
+            System.out.println("Enter your choice");
+            choice=var.nextInt();
+            switch (choice){
+                case 1:
+                    ll.enqueue(var);
+                    break;
+                case 2:
+                    ll.display();
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }System.out.println("Enter 3 to go back to main menu OR enter 4 to exit");
             loopvar=var.nextInt();
-        } while (loopvar == 1);
+        } while (loopvar == 3);
         System.out.println("Exit successfully");
-        System.out.println("Displaying stack");
-        ll.display();
-        ll.peek();
-        System.out.println("Do you want to pop data? if yes type 3");
-        int i = var.nextInt();
-        while (i == 3) {
-            ll.pop();
-            System.out.println("Do you want to pop data? if yes type 3 else type 4 to exit");
-            i = var.nextInt();
-        }
-        ll.display();
-        System.out.println("Exit successfully");
-
     }
 }
