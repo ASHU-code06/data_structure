@@ -3,28 +3,35 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        StackUsingLinkedList ll = new StackUsingLinkedList();
-        int loopvar = 0;
+        queue ll = new queue();
+        int choice, loopvar = 0;
         Scanner var = new Scanner(System.in);
         do {
-            System.out.println("Enter data ");
-            ll.push(var);
-            System.out.println("Enter 1 to push more data or enter 2 to exit");
+            System.out.println("Type 1 to enqueue");
+            System.out.println("Type 2 to dequeue");
+            System.out.println("Type 3 to display");
+            System.out.println("Enter your choice");
+            choice=var.nextInt();
+            switch (choice){
+                case 1:
+                    ll.enqueue(var);
+                    break;
+                case 1:
+                    ll.dequeue();
+                    break;
+                case 1:
+                    ll.display();
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+            System.out.println("Enter 1 to go back to main menu OR  enter 0 to exit ");
             loopvar=var.nextInt();
         } while (loopvar == 1);
-        System.out.println("Exit successfully");
-        System.out.println("Displaying stack");
-        ll.display();
-        ll.peek();
-        System.out.println("Do you want to pop data? if yes type 3");
-        int i = var.nextInt();
-        while (i == 3) {
-            ll.pop();
-            System.out.println("Do you want to pop data? if yes type 3 else type 4 to exit");
-            i = var.nextInt();
-        }
-        ll.display();
-        System.out.println("Exit successfully");
+        System.out.println("Exit Successfully");
+
+
 
     }
 }
